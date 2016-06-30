@@ -44,6 +44,7 @@ var Employee = require('./models/employees.js');
  *     curl -i http://localhost:3000/employees
  *
  * @apiSuccess {Array} List of employees objects
+ * @apiVersion 1.6.2
  */
 app.get('/employees', function(req, res){
   Employee.findAll().then(function(result){
