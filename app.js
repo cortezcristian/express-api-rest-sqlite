@@ -33,6 +33,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
+var sequelize = exports.sequelize = require('./conn.js');
+var Employee = require('./models/employees.js');
+
+app.get('/employees', function(req, res){
+  Employee.findAll().then(function(result){
+    res.json(result);
+  });
+});
+
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
