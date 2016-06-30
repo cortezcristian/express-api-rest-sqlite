@@ -14,8 +14,8 @@ var Employee = sequelize.define('Employees', {
 	timestamps: false
 });
 
-Employee.find().then(function(res){
-	console.log(res);
+Employee.findOne().then(function(record){
+	console.log(record.get('email'));
 });
 
 module.exports = Employee;
