@@ -247,5 +247,38 @@ Y luego de esto vistamos nuestro sitio en el puerto 3000, [http://localhost:3000
 
 ![image alt text](image_9.png)
 
-Excelente ya tenemos el primer endpoint documentado para nuestra api!
+Excelente ya tenemos el primer endpoint documentado para nuestra api! Podemos agregar algunos tests automáticos para asegurarnos de que funcione correctamente, crearemos entonces test/rest-tests.js:
 
+```javascript
+var assert = require('assert');
+var superagent = require('superagent');
+var d = "http://localhost:3000";
+var agent;
+
+describe("REST API", function(){
+
+  before(function(){
+    // Start agent
+    agent = superagent.agent();
+  });
+
+  it('GET /employess', function(done){
+    agent
+      .get(d+'/employees')
+      .end(function(err, res) {
+        assert.ok(res.ok);
+        assert.ok(res.body.length>0);
+        done(err);
+      });
+  });
+
+});
+```
+
+Procedemos a ejecutar este test:
+
+```
+$ mocha test/rest-tests.js
+```
+
+![image alt text](image_10.png)

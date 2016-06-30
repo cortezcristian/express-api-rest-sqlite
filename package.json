@@ -13,7 +13,8 @@
     "morgan": "^1.6.1",
     "sequelize": "^3.23.4",
     "serve-favicon": "^2.3.0",
-    "sqlite": "^2.0.2"
+    "sqlite": "^2.0.2",
+    "superagent": "^2.0.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
