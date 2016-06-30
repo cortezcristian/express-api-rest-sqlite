@@ -8,12 +8,10 @@ describe('Employees Tests', function() {
     Employee
       .create({email: 'none@none.com'})
       .then(function(record){
-        console.log("asdds");
         assert.ok(record.get('email') === 'none@none.com', 'Email does not match');
         done();
       })
       .catch(function (err) {
-        console.log('Unable to connect to the database:', err);
         done(err);
       });
   });
