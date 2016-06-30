@@ -1,8 +1,5 @@
 var Sequelize = require('sequelize');
-
-var sequelize = new Sequelize('database', '', '',
-      { storage: 'db/database.sqlite', dialect: 'sqlite'});
-
+var sequelize = module.parent.exports.sequelize;
 
 var Employee = sequelize.define('Employees', {
 	idEmployee      : { type : Sequelize.INTEGER, primaryKey : true, autoIncrement : true },
@@ -12,10 +9,6 @@ var Employee = sequelize.define('Employees', {
 	hashed_password : Sequelize.TEXT
 }, {
 	timestamps: false
-});
-
-Employee.findOne().then(function(record){
-	console.log(record.get('email'));
 });
 
 module.exports = Employee;
