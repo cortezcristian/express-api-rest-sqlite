@@ -35,7 +35,16 @@ app.use('/users', users);
 
 var sequelize = exports.sequelize = require('./conn.js');
 var Employee = require('./models/employees.js');
-
+/**
+ * @api {get} /employees Request Employees List
+ * @apiName findAll
+ * @apiGroup Employees
+ *
+ * @apiExample {curl} Example usage:
+ *     curl -i http://localhost:3000/employees
+ *
+ * @apiSuccess {Array} List of employees objects
+ */
 app.get('/employees', function(req, res){
   Employee.findAll().then(function(result){
     res.json(result);
