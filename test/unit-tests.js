@@ -1,24 +1,8 @@
 var assert = require('assert');
-var sequelize, Employee;
-//var sequelize = exports.sequelize = require('../conn.js');
-//var Employee = require('../models/employees.js');
+var sequelize = exports.sequelize = require('../conn.js');
+var Employee = require('../models/employees.js');
 
 describe('Employees Tests', function() {
-
-  before(function(done){
-    sequelize = exports.sequelize = require('../conn.js');
-    sequelize
-      .authenticate()
-      .then(function(err) {
-        console.log('Connection has been established successfully.');
-        Employee = require('../models/employees.js');
-        done();
-      })
-      .catch(function (err) {
-        console.log('Unable to connect to the database:', err);
-        done(err);
-      });
-  });
 
   it('should create an employee', function(done) {
     Employee
