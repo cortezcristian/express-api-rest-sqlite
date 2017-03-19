@@ -15,4 +15,9 @@ describe('Employees Tests', function() {
         done(err);
       });
   });
+
+  it('epic fail', function(){
+    throw new Error("Epic fail");
+  });
+
 });
